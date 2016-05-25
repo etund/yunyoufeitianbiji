@@ -71,6 +71,28 @@
 
   - flex
 
+- 操作
+
+  - 开始项目
+
+
+  ```code
+  $ npm install -g react-native-cli
+  $ react-native init AwesomeProject
+  ```
+
+  ​
+
+  - 运行安卓应用
+
+
+  ```code
+  $ cd AwesomeProject
+  $ react-native run-android
+  ```
+
+  ​
+
 
 #### 布局
 
@@ -428,23 +450,44 @@ componentWillMount()
   - 如果是使用
 
 
-  ```javascript
+```javascript
   class AwesomeProject extends Component {}//这样就可以在外层包裹div,如果包裹了div并且没有使用这个开头会包以上错误
-  ```
+```
 
-  - 可以替换为
+- 可以替换为
 
 
-  ```javascript
+```javascript
   var AwesomeProject = React.createClass({});//在外面不可以包裹div,但是可以包裹View
-  ```
+```
 
 - Unexpected token
 
   - 语法错误
+- Unable to resolve module image!book from /Users/yunyoufeitian/Documents/ReactJS/RN/HelloWorld/index.ios.js: Unable to find this module in its module map or any of the node_modules directories under /Users/node_modules/image!book and its parent directories
+  - https://github.com/facebook/react-native/issues/4968
+  - Delete the `node_modules` folder - `rm -rf node_modules && npm install`
+  - Reset packager cache - `rm -fr $TMPDIR/react-*` or `node_modules/react-native/packager/packager.sh --reset-cache`
+  - Clear watchman watches - `watchman watch-del-all`
+  - Recreate the project from scratch
 
 
 
+
+
+
+- Application HelloWorld has not been registered. This is either due to a require() error during initialization or failure to call AppRegistry.registerComponent.
+
+  - 这样的问题，IOS项目请注意AppDelegate.m中的RCTRootView 初始化的时候的moduleName 
+
+  ​
+
+
+- 安卓步骤
+  - buildTools  23.0.1
+  - js文件输出
+  - java文件调用
+  - ​
 
 
 #### 参考文章
